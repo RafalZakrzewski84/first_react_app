@@ -21,3 +21,5 @@ function LoginFrom() {
 		</form>
 	);
 }
+
+export default LoginFrom;
