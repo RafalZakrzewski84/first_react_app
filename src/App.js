@@ -19,7 +19,7 @@ function App() {
 			<HomePage />
 			<Article />
 			<Form/>
-			<LoginFrom />
+			<LoginPage />
 			<Register />
 		</div>
 	);

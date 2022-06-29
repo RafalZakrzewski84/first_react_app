@@ -11,7 +11,7 @@ function Form() {
 	return (
 		<form>
 			<label>
-				Text Form:
+				Search:
 				<input type='text' name='text' placeholder='Keyword'/>
 			</label>
 			<button type='submit'>Submit</button>
