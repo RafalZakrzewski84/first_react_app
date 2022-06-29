@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 
 const Counter = () => {
+	//useState - controlling state of component
 	//useState - setting function should have the same name like variable
 	//useStet(here we initialize variable)
 

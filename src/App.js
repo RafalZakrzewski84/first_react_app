@@ -17,7 +17,7 @@ import Counter from './components/counter/Counter';
 function App() {
 	return (
 		<div className="App">
-			//below are components
+			{/* //below are components */}
 			<Navbar />
 			<Counter />
 		</div>
