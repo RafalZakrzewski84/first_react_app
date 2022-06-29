@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import HomePage from './components/homePage/HomePage';
 import Article from './components/article/Article';
@@ -14,12 +15,22 @@ function App() {
 
 	return (
 		<div className='App'>
-			<Navbar />
-			<HomePage />
-			<Article />
+			{/* staging routes */}
+			<BrowserRouter>
+				<Navbar />
+				{/* routers holds path in app */}
+				<Routes>
+					<Route path='/' element={<HomePage />}/>
+					<Route path='/login' element={<LoginPage />}/>
+					<Route path='/register' element={<Register />}/>
+				</Routes>
+			</BrowserRouter>
+
+			
+			{/* <Article />
 			<Form />
-			<LoginPage />
-			<Register />
+			
+			 */}
 		</div>
 	);
 }

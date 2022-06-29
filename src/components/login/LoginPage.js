@@ -1,5 +1,7 @@
 /** @format */
 import LoginFrom from './loginForm/LoginForm';
+import { Link } from 'react-router-dom';
+
 // 6. LoginPage.js
 // Wyrenderuj LoginForm.js
 // h2 Don't have an account yet? Register now!
@@ -10,7 +12,9 @@ function LoginPage() {
 		<>
 			<LoginFrom />
 			<h2>Don't have an account yet? Register now!</h2>
-			<button>Register</button>
+			<Link to='/register'>
+				<button>Register</button>
+			</Link>
 		</>
 	);
 }
