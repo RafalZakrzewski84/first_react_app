@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Navbar from './components/navbar/Navbar';
 import Counter from './components/counter/Counter';
 
@@ -16,12 +16,15 @@ import Counter from './components/counter/Counter';
 
 function App() {
 	const starterCounter = 5;
+	const [counter, setCounter] = useState();
 
 	return (
 		<div className='App'>
 			{/* //below are components */}
 			<Navbar />
-			<Counter starterCounter={starterCounter} />
+			{/* passing of setCounter to lower element */}
+			<Counter starterCounter={starterCounter} setCounter={setCounter}/>
+			<span>Counter from lower element - state lifting: {counter}</span>
 		</div>
 	);
 }
