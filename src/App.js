@@ -3,6 +3,11 @@
 import React, { useState } from 'react';
 import Navbar from './components/navbar/Navbar';
 import HomePage from './components/homePage/HomePage';
+import Article from './components/article/Article';
+import LoginPage from './components/login/LoginPage';
+import LoginFrom from './components/login/loginForm/LoginForm';
+import Register from './components/login/register/Register';
+
 
 function App() {
 	const [counter, setCounter] = useState(0);
@@ -11,6 +16,9 @@ function App() {
 		<div className='App'>
 			<Navbar />
 			<HomePage />
+			<Article />
+			<LoginFrom />
+			<Register />
 		</div>
 	);
 }

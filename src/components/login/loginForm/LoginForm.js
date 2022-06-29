@@ -14,8 +14,8 @@ function LoginFrom() {
 				<input type='email' name='email' />
 			</label>
 			<label>
-				Email:
-				<input type='email' name='email' />
+				Password:
+				<input type='password' name='password' />
 			</label>
 			<button type='submit'>Log In</button>
 		</form>
