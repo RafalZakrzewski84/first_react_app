@@ -15,11 +15,13 @@ import Counter from './components/counter/Counter';
 // }
 
 function App() {
+	const starterCounter = 5;
+
 	return (
-		<div className="App">
+		<div className='App'>
 			{/* //below are components */}
 			<Navbar />
-			<Counter />
+			<Counter starterCounter={starterCounter} />
 		</div>
 	);
 }

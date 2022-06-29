@@ -2,13 +2,16 @@
 
 import React, { useState } from 'react';
 
-const Counter = () => {
+//React.Fragment - use to do not nest elements in div!!!!
+//adding props in counter function
+const Counter = (props) => {
+	//printing props
+	console.log(props);
+
 	//useState - controlling state of component
 	//useState - setting function should have the same name like variable
 	//useStet(here we initialize variable)
-
-	//React.Fragment - use to do not nest elements in div!!!!
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(props.starterCounter);
 
 	return (
 		<React.Fragment>
