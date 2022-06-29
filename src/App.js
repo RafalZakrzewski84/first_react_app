@@ -19,9 +19,10 @@ function App() {
 
 	return (
 		<div className='App'>
+			<span>Counter in app.js: {counter}</span>
 			{/* passing counter and setCounter to lower element navbar */}
 			<Navbar counter={counter} setCounter={setCounter} />
-			<Counter />
+			<Counter counter={counter}/>
 		</div>
 	);
 }

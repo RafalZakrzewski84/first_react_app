@@ -18,10 +18,11 @@ const Navbar = (props) => {
 			<button>Home</button>
 			<button>Search</button>
 			<button>Login</button>
+			<button onClick={counterAppAdding}>Add 1 to app counter</button>
 			<div>
 				{/* printing value of counter from app.ja */}
 				<p>Counter from app.js: {props.counter}</p>
-				<button onClick={counterAppAdding}>Add 1 to app counter</button>
+				
 			</div>
 		</nav>
 	);
