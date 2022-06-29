@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/navbar/Navbar';
 
 function App() {
@@ -14,3 +14,10 @@ function App() {
 }
 //app is rendered in index.js
 export default App;
+
+
+
+
+
+
+
