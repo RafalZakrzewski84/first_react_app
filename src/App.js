@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Navbar from './components/navbar/Navbar';
 import HomePage from './components/homePage/HomePage';
 import Article from './components/article/Article';
+import Form from './components/form/Form';
 import LoginPage from './components/login/LoginPage';
 import LoginFrom from './components/login/loginForm/LoginForm';
 import Register from './components/login/register/Register';
@@ -17,6 +18,7 @@ function App() {
 			<Navbar />
 			<HomePage />
 			<Article />
+			<Form/>
 			<LoginFrom />
 			<Register />
 		</div>
