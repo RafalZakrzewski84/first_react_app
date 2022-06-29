@@ -9,7 +9,6 @@ import LoginPage from './components/login/LoginPage';
 import LoginFrom from './components/login/loginForm/LoginForm';
 import Register from './components/login/register/Register';
 
-
 function App() {
 	const [counter, setCounter] = useState(0);
 
@@ -18,7 +17,7 @@ function App() {
 			<Navbar />
 			<HomePage />
 			<Article />
-			<Form/>
+			<Form />
 			<LoginPage />
 			<Register />
 		</div>
@@ -26,10 +25,3 @@ function App() {
 }
 //app is rendered in index.js
 export default App;
-
-
-
-
-
-
-

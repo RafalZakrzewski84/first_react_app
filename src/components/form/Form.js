@@ -12,7 +12,7 @@ function Form() {
 		<form>
 			<label>
 				Search:
-				<input type='text' name='text' placeholder='Keyword'/>
+				<input type='text' name='text' placeholder='Keyword' />
 			</label>
 			<button type='submit'>Submit</button>
 		</form>

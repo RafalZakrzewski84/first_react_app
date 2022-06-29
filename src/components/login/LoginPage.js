@@ -10,7 +10,7 @@ function LoginPage() {
 		<>
 			<LoginFrom />
 			<h2>Don't have an account yet? Register now!</h2>
-            <button>Register</button>
+			<button>Register</button>
 		</>
 	);
 }
