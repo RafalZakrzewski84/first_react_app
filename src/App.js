@@ -15,16 +15,13 @@ import Counter from './components/counter/Counter';
 // }
 
 function App() {
-	const starterCounter = 5;
-	const [counter, setCounter] = useState();
+	const [counter, setCounter] = useState(0);
 
 	return (
 		<div className='App'>
-			{/* //below are components */}
-			<Navbar />
-			{/* passing of setCounter to lower element */}
-			<Counter starterCounter={starterCounter} setCounter={setCounter}/>
-			<span>Counter from lower element - state lifting: {counter}</span>
+			{/* passing counter and setCounter to lower element navbar */}
+			<Navbar counter={counter} setCounter={setCounter} />
+			<Counter />
 		</div>
 	);
 }
