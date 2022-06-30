@@ -7,7 +7,7 @@
 
 import React from 'react';
 
-function Article({art}) {
+function Article({ art }) {
 	return (
 		<li>
 			<a href={art.url}>
