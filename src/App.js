@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import HomePage from './components/homePage/HomePage';
-import Article from './components/article/Article';
-import Form from './components/form/Form';
+import Search from './components/search/Search';
 import LoginPage from './components/login/LoginPage';
 import LoginFrom from './components/login/loginForm/LoginForm';
 import Register from './components/login/register/Register';
+import Article from './components/article/Article';
 
 function App() {
 	const [counter, setCounter] = useState(0);
@@ -23,14 +23,12 @@ function App() {
 					<Route path='/' element={<HomePage />}/>
 					<Route path='/login' element={<LoginPage />}/>
 					<Route path='/register' element={<Register />}/>
+					<Route path='/search' element={<Search />}/>
 				</Routes>
 			</BrowserRouter>
 
 			
-			{/* <Article />
-			<Form />
-			
-			 */}
+			{/* <Article />*/}
 		</div>
 	);
 }

@@ -7,7 +7,7 @@ const Navbar = () => {
 	return (
 		<nav>
 			<h1>SDA News</h1>
-			{/* Link is wrapping link to app page "to" is the same like path in app.js */}
+			{/* Link is wrapping link to app page, "to" is the same like path in app.js */}
 			<Link to='/'>
 				<button>Home</button>
 			</Link>
