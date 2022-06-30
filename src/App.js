@@ -6,13 +6,10 @@ import Navbar from './components/navbar/Navbar';
 import HomePage from './components/homePage/HomePage';
 import Search from './components/search/Search';
 import LoginPage from './components/login/LoginPage';
-import LoginFrom from './components/login/loginForm/LoginForm';
 import Register from './components/login/register/Register';
 import Article from './components/article/Article';
 
 function App() {
-	const [counter, setCounter] = useState(0);
-
 	return (
 		<div className='App'>
 			{/* staging routes */}

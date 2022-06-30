@@ -1,6 +1,7 @@
 /** @format */
-import LoginFrom from './loginForm/LoginForm';
+
 import { Link } from 'react-router-dom';
+import LoginFrom from './loginForm/LoginForm';
 
 // 6. LoginPage.js
 // Wyrenderuj LoginForm.js

@@ -1,18 +1,31 @@
 /** @format */
 
-// 2. Form.js
-
-// Element form
-// w form input type text i button type submit
-
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 function Form() {
+	//functions for handle form
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
+
+	//will print form data form text input
+	const submitHandler = (data) => {
+		console.log(data);
+	};
+
 	return (
-		<form>
+		//
+		<form onSubmit={handleSubmit(submitHandler)}>
 			<label>
 				Search:
-				<input type='text' name='text' placeholder='Keyword' />
+				<input
+					type='text'
+					{...register('keyword', { required: true })}
+					placeholder='Keyword'
+				/>
 			</label>
 			<button type='submit'>Submit</button>
 		</form>
