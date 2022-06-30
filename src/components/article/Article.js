@@ -7,12 +7,12 @@
 
 import React from 'react';
 
-function Article() {
+function Article({art}) {
 	return (
 		<li>
-			<a href='#'>
-				<img src='/' alt='alt' />
-				<span>Link with img and description</span>
+			<a href={art.url}>
+				<img src='art.urlToImage' alt='art.title' />
+				<span>{art.title}</span>
 			</a>
 		</li>
 	);
