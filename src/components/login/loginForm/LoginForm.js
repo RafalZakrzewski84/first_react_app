@@ -1,21 +1,30 @@
 /** @format */
 
-// 4. LoginForm.js
-// Element form
-// w formie ma być input type email, input type password, button type submit z textem Log in
-
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 function LoginFrom() {
+	//functions for handle form
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
+
+	//will print form data form text input
+	const submitHandler = (data) => {
+		console.log(data);
+	};
+
 	return (
-		<form>
+		<form onSubmit={handleSubmit(submitHandler)}>
 			<label>
 				Email:
-				<input type='email' name='email' />
+				<input type='email' {...register('email', {required: true})} />
 			</label>
 			<label>
 				Password:
-				<input type='password' name='password' />
+				<input type='password' {...register('password', {required: true})} />
 			</label>
 			<button type='submit'>Log In</button>
 		</form>
