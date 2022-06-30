@@ -1,26 +1,35 @@
 /** @format */
 
-// 5. Register.js
-// Element form
-// w formie ma być: h2 z tekstem Register new account, input type email, input type password x2, button submit z tekstem Register
-
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 function Register() {
+	//functions for handle form
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
+
+	//will print form data form text input
+	const submitHandler = (data) => {
+		console.log(data);
+	};
+
 	return (
-		<form>
+		<form onSubmit={handleSubmit(submitHandler)}>
 			<h2>Register New Account</h2>
 			<label>
 				Email:
-				<input type='email' name='email' />
+				<input type='email' {...register('email', {required: true})} />
 			</label>
 			<label>
 				Password:
-				<input type='password' name='password' />
+				<input type='password' {...register('password', {required: true})} />
 			</label>
 			<label>
 				Repeat Password:
-				<input type='password' name='repeatedPassword' />
+				<input type='password' {...register('repeatedPassword', {required: true})} />
 			</label>
 			<button type='submit'>Register</button>
 		</form>
