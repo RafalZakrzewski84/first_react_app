@@ -21,10 +21,12 @@ function LoginFrom() {
 			<label>
 				Email:
 				<input type='email' {...register('email', {required: true})} />
+				<p>{errors.email && "Email is required"}</p>
 			</label>
 			<label>
 				Password:
 				<input type='password' {...register('password', {required: true})} />
+				<p>{errors.password && "Password is required"}</p>
 			</label>
 			<button type='submit'>Log In</button>
 		</form>

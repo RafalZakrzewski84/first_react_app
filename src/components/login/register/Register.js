@@ -22,14 +22,17 @@ function Register() {
 			<label>
 				Email:
 				<input type='email' {...register('email', {required: true})} />
+				<p>{errors.email && "Email is required"}</p>
 			</label>
 			<label>
 				Password:
-				<input type='password' {...register('password', {required: true})} />
+				<input type='password' {...register('password', {required: true, minLength: 8})} />
+				<p>{errors.password && "Password is required"}</p>
 			</label>
 			<label>
 				Repeat Password:
-				<input type='password' {...register('repeatedPassword', {required: true})} />
+				<input type='password' {...register('repeatedPassword', {required: true, minLength: 8})} />
+				<p>{errors.repeatedPassword && "Confirm password"}</p>
 			</label>
 			<button type='submit'>Register</button>
 		</form>

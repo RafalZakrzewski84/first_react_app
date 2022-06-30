@@ -26,6 +26,7 @@ function Form() {
 					{...register('keyword', { required: true })}
 					placeholder='Keyword'
 				/>
+				<p>{errors.keyword && "Can't be empty"}</p>
 			</label>
 			<button type='submit'>Submit</button>
 		</form>
