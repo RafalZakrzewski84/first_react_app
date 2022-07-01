@@ -7,6 +7,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import API_KEY from '../helpers/helpers';
+import Article from '../article/Article';
 
 function HomePage() {
 	//hook use state
@@ -27,15 +28,22 @@ function HomePage() {
 			)
 			.then((response) => {
 				console.log(response);
+				//setting axios response to todaysArticles
 				setTodaysArticles(response.data.articles);
 			})
-			.catch((e)=>{console.log(e)});
+			.catch((e) => {
+				console.log(e);
+			});
 	}, []);
 
 	return (
 		<>
 			<h2>Today's hottest news:</h2>
-			<ul></ul>
+			{/* rendering articles on page, we are passing data to article by prop art */}
+			<ul>{todaysArticles.map((art, idx) => {
+				return <Article key={idx} art={art}/>
+			})}
+			</ul>
 		</>
 	);
 }

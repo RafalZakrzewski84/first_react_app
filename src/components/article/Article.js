@@ -1,17 +1,15 @@
 /** @format */
 
-// 1. Article.js
-// Element li
-// w elemencie li:
-// a w którym zawierać ma się tag img, span z przykładowym tekstem
 
 import React from 'react';
 
+//taking props art from homepage
 function Article({ art }) {
 	return (
 		<li>
+			{/* distributing axios data by props in article */}
 			<a href={art.url}>
-				<img src='art.urlToImage' alt='art.title' />
+				<img style={{width: '200px'}} src={art.urlToImage} alt={art.title} />
 				<span>{art.title}</span>
 			</a>
 		</li>
