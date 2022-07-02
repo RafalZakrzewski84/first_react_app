@@ -44,7 +44,7 @@ function HomePage() {
 	// 1. h2 zamień na Typography (sprawdź jak wyświetlić Tg jako h2), text: Today's hottest news:
 	//2. ul => List
 	return (
-		<Container maxWidth="sm" sx={{}}>
+		<Container align="center" maxWidth="sm" sx={{}}>
 			<Typography
 				variant="h2"
 				component="h2"
