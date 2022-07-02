@@ -3,7 +3,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-function Form() {
+function Form(props) {
 	//functions for handle form
 	const {
 		register,
@@ -11,9 +11,13 @@ function Form() {
 		formState: { errors },
 	} = useForm();
 
-	//will print form data form text input
+	//function for passing search result to search page
 	const submitHandler = (data) => {
-		console.log(data);
+		//defining variable which hold search term from form
+		let dKeyword = data.keyword;
+
+		//setting value of searchKeyword from search page
+		props.setSearchKeyword(dKeyword);
 	};
 
 	return (
@@ -22,13 +26,13 @@ function Form() {
 			<label>
 				Search:
 				<input
-					type='text'
+					type="text"
 					{...register('keyword', { required: true })}
-					placeholder='Keyword'
+					placeholder="Keyword"
 				/>
 				<p>{errors.keyword && "Can't be empty"}</p>
 			</label>
-			<button type='submit'>Submit</button>
+			<button type="submit">Submit</button>
 		</form>
 	);
 }
