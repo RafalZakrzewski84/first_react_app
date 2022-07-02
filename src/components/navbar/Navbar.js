@@ -16,6 +16,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import FitbitIcon from '@mui/icons-material/Fitbit';
 
 const Navbar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -48,7 +49,6 @@ const Navbar = () => {
 						}}>
 						SDA News
 					</Typography>
-
 					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
 						<IconButton
 							size="large"
@@ -99,7 +99,7 @@ const Navbar = () => {
 							</MenuItem>
 						</Menu>
 					</Box>
-					<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+					<FitbitIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
 					<Typography
 						variant="h5"
 						noWrap
@@ -133,7 +133,6 @@ const Navbar = () => {
 							</Button>
 						</Link>
 					</Box>
-
 					<Box sx={{ flexGrow: 0 }}>
 						<Link to="/login" style={{ textDecoration: 'none' }}>
 							<IconButton sx={{ p: 0 }}>
