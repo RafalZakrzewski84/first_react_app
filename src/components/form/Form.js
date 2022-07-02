@@ -1,7 +1,11 @@
 /** @format */
 
-import React from 'react';
 import { useForm } from 'react-hook-form';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function Form(props) {
 	//functions for handle form
@@ -20,21 +24,42 @@ function Form(props) {
 		props.setSearchKeyword(dKeyword);
 	};
 
+	// 1. Użyj zwykłego tagu form
+	// 2. TextField
+	// 3. Button
+
 	return (
-		//
-		<form onSubmit={handleSubmit(submitHandler)}>
-			<label>
-				Search:
-				<input
-					type="text"
-					{...register('keyword', { required: true })}
-					placeholder="Keyword"
-				/>
-				<p>{errors.keyword && "Can't be empty"}</p>
-			</label>
-			<button type="submit">Submit</button>
-		</form>
+		<Container maxWidth="sm">
+			<Box sx={{ bgcolor: '#fff', my: 2, textAlign: 'center' }}>
+				<form onSubmit={handleSubmit(submitHandler)}>
+					<TextField
+						id="outlined-basic"
+						label="Search term"
+						variant="outlined"
+						sx={{ display: 'block', mb: 1 }}
+						{...register('keyword', { required: true })}
+					/>
+					<Button variant="contained" type="submit">
+						Search
+					</Button>
+				</form>
+			</Box>
+		</Container>
 	);
 }
 
 export default Form;
+
+//original code before styling
+// <form onSubmit={handleSubmit(submitHandler)}>
+// 	<label>
+// 		Search:
+// 		<input
+// 			type="text"
+// 			{...register('keyword', { required: true })}
+// 			placeholder="Keyword"
+// 		/>
+// 		<p>{errors.keyword && "Can't be empty"}</p>
+// 	</label>
+// 	<button type="submit">Submit</button>
+// </form>
