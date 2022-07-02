@@ -2,6 +2,11 @@
 
 import { Link } from 'react-router-dom';
 import LoginFrom from './loginForm/LoginForm';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
 
 // 6. LoginPage.js
 // Wyrenderuj LoginForm.js
@@ -10,14 +15,35 @@ import LoginFrom from './loginForm/LoginForm';
 
 function LoginPage() {
 	return (
-		<>
-			<LoginFrom />
-			<h2>Don't have an account yet? Register now!</h2>
-			<Link to='/register'>
-				<button>Register</button>
-			</Link>
-		</>
+		<Container align="center" maxWidth="sm">
+			<Card sx={{ minWidth: 275, my: 4 }}>
+				<LoginFrom />
+			</Card>
+			<Card sx={{ minWidth: 275, my: 2 }}>
+				<Typography
+					variant="h2"
+					component="h2"
+					align="center"
+					sx={{ fontSize: '1.2rem', my: 2 }}>
+					Don't have an account yet? Register now!
+				</Typography>
+				<Link to="/register" style={{ textDecoration: 'none' }}>
+					<Button variant="contained" sx={{ mb: 2 }}>
+						Register
+					</Button>
+				</Link>
+			</Card>
+		</Container>
 	);
 }
 
 export default LoginPage;
+
+//original code before styling
+// <>
+// 	<LoginFrom />
+// 	<h2>Don't have an account yet? Register now!</h2>
+// 	<Link to='/register'>
+// 		<button>Register</button>
+// 	</Link>
+// </>
