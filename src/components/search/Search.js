@@ -1,6 +1,11 @@
 /** @format */
 
 import React, { useState, useEffect } from 'react';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
+
 import axios from 'axios';
 import Form from '../form/Form';
 import API_KEY from '../helpers/helpers';
@@ -52,22 +57,33 @@ function Search() {
 	}, [searchKeyword]);
 
 	return (
-		<div className="Search">
-			{/* passing search setting params to form */}
+		<Container align="center" maxWidth="sm" sx={{}}>
 			<Form searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword} />
-			<ul>
+			<Typography
+				variant="h2"
+				component="h2"
+				align="center"
+				sx={{ fontSize: '2rem', my: 2 }}>
+				Most popular news from last week
+			</Typography>
+			<List>
 				{searchArticles.map((art, idx) => {
 					return <Article key={idx} art={art} />;
 				})}
-			</ul>
-		</div>
+			</List>
+		</Container>
 	);
 }
 
 export default Search;
 
-// 1. Wyświetl formularz z Form.js
-// 2. Wyświetl ul, w którym będą renderowane komponenty Article.js w pętli
-// 3. Wyciągnij wartość z formularza z Form.js do tego komponentu i zapisz ją tutaj (to jest keyword)
-// 4. Na podstawie keyword'u wykonaj fetcha axiosem `newsapi.org/v2/everything, q=keyword, from=7 dni do tyłu,language=angielski, sortowanie po popularności, apiKey`, całość opakuj w useEffect
-// 5. Dane z fetcha też zapisz do zmiennej
+//code before styling
+// <div className="Search">
+// 	{/* passing search setting params to form */}
+// 	<Form searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword} />
+// 	<ul>
+// 		{searchArticles.map((art, idx) => {
+// 			return <Article key={idx} art={art} />;
+// 		})}
+// 	</ul>
+// </div>
