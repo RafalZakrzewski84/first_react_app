@@ -7,6 +7,11 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
+import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
+import firebase from '../../helpers/fireBaseConfig';
+
+const auth = firebase.auth;
+
 function LoginFrom() {
 	//functions for handle form
 	const {
@@ -15,19 +20,35 @@ function LoginFrom() {
 		formState: { errors },
 	} = useForm();
 
-	//will print form data form text input
+	//getting data from form
 	const submitHandler = (data) => {
 		console.log(data);
+
+		//crating variables for log in
+		const email = data.email;
+		const password = data.password;
+
+		//function for logIn
+		signInWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				const user = userCredential.user;
+				console.log(user.email, 'log in');
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(errorCode, errorMessage);
+			});
 	};
 
 	return (
-		<Container maxWidth="sm" align="center">
-			<Box sx={{ bgcolor: '#fff', my: 2 }}>
+		<Container align="center" maxWidth="sm">
+			<Box align="center" sx={{ bgcolor: '#fff', my: 2 }}>
 				<form onSubmit={handleSubmit(submitHandler)}>
 					<TextField
 						type="email"
 						id="outlined-basic"
-						label="Email"
+						placeholder="Email"
 						variant="outlined"
 						sx={{ display: 'block', mb: 1 }}
 						{...register('email', { required: true })}
@@ -35,7 +56,7 @@ function LoginFrom() {
 					<TextField
 						type="password"
 						id="outlined-basic"
-						label="Password"
+						placeholder="Password"
 						variant="outlined"
 						sx={{ display: 'block', mb: 1 }}
 						{...register('password', { required: true })}
