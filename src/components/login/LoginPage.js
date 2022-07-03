@@ -8,11 +8,6 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 
-// 6. LoginPage.js
-// Wyrenderuj LoginForm.js
-// h2 Don't have an account yet? Register now!
-// button type button Register
-
 function LoginPage() {
 	return (
 		<Container align="center" maxWidth="sm">
@@ -23,7 +18,6 @@ function LoginPage() {
 				<Typography
 					variant="h2"
 					component="h2"
-					align="center"
 					sx={{ fontSize: '1.2rem', my: 2 }}>
 					Don't have an account yet? Register now!
 				</Typography>
