@@ -21,16 +21,21 @@ import firebase from './components/helpers/fireBaseConfig';
 // 3. Stan loggedIn przekaż propsami do Navbar.js, UserPage.js
 
 function App() {
-	const [userIsLogIn, setUserIsLogIn] = useState();
+	const [userIsLogIn, setUserIsLogIn] = useState(false);
 
 	const auth = firebase.auth;
 
 	//function for checking user
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
-			//log in
-			const uid = user.uid;
-			const uemail = user.email;
+			// //log in
+			// const udata = {
+			// 	uEmail: user.email,
+			// 	logIn: true,
+			// };
+			// const uid = user.uid;
+			// const uEmail = user.email;
+
 			setUserIsLogIn(true);
 		} else {
 			setUserIsLogIn(false);

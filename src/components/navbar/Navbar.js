@@ -93,6 +93,13 @@ const Navbar = (props) => {
 								</Link>
 							</MenuItem>
 							<MenuItem>
+								<Link to="/userpage" style={{ textDecoration: 'none' }}>
+									<Typography textAling="center" onClick={handleCloseNavMenu}>
+										Your Page
+									</Typography>
+								</Link>
+							</MenuItem>
+							<MenuItem>
 								<Link to="/login" style={{ textDecoration: 'none' }}>
 									<Typography textAling="center" onClick={handleCloseNavMenu}>
 										LogIn
@@ -132,6 +139,13 @@ const Navbar = (props) => {
 								onClick={handleCloseNavMenu}
 								sx={{ my: 2, color: 'white', display: 'block' }}>
 								Search
+							</Button>
+						</Link>
+						<Link to="/userpage" style={{ textDecoration: 'none' }}>
+							<Button
+								onClick={handleCloseNavMenu}
+								sx={{ my: 2, color: 'white', display: 'block' }}>
+								Your Page
 							</Button>
 						</Link>
 					</Box>
