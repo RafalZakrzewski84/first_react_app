@@ -1,6 +1,7 @@
 /** @format */
 
 import { useForm } from 'react-hook-form';
+import { useState, useEffect } from 'react';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -8,6 +9,12 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
+
+import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
+
+import firebase from '../../helpers/fireBaseConfig';
+
+const auth = firebase.auth;
 
 function Register() {
 	//functions for handle form
@@ -17,9 +24,29 @@ function Register() {
 		formState: { errors },
 	} = useForm();
 
-	//will print form data form text input
+	//function for taking data from form and adding
 	const submitHandler = (data) => {
 		console.log(data);
+
+		//initialize variables for crating user
+		const email = data.email;
+		const password = data.password;
+		const password2 = data.repeatedPassword;
+
+		if (password === password2) {
+			createUserWithEmailAndPassword(auth, email, password)
+				.then((userCredential) => {
+					const user = userCredential.user;
+					console.log('user created:', user.email);
+				})
+				.catch((error) => {
+					const errorCode = error.code;
+					const errorMessage = error.message;
+					console.log(errorCode, errorMessage);
+				});
+		} else {
+			console.log("passwords doesn't match");
+		}
 	};
 
 	return (
