@@ -17,7 +17,7 @@ const firebaseConfig = {
 	apiKey: 'AIzaSyDEAy30tUasXEuP2uLajilyR8KNaeVAn7U',
 	authDomain: 'sdanews-acd6d.firebaseapp.com',
 	projectId: 'sdanews-acd6d',
-	storageBucket: 'sdanews-acd6d.appspot.com',
+	storageBucket: 'gs://sdanews-acd6d.appspot.com',
 	messagingSenderId: '681013709198',
 	appId: '1:681013709198:web:26efb2524a2123c1917cdf',
 	measurementId: 'G-23S3FLXQ2V',
