@@ -18,7 +18,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import FitbitIcon from '@mui/icons-material/Fitbit';
 
-const Navbar = () => {
+const Navbar = (props) => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
 
 	const handleOpenNavMenu = (event) => {
@@ -28,6 +28,8 @@ const Navbar = () => {
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null);
 	};
+
+	console.log('navbar props:', props);
 
 	return (
 		<AppBar position="static">
