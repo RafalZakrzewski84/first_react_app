@@ -11,7 +11,6 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
 import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
-
 import firebase from '../../helpers/fireBaseConfig';
 
 const auth = firebase.auth;
@@ -26,7 +25,7 @@ function Register() {
 
 	//function for taking data from form and adding
 	const submitHandler = (data) => {
-		console.log(data);
+		// console.log(data);
 
 		//initialize variables for crating user
 		const email = data.email;
