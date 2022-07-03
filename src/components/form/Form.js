@@ -30,11 +30,11 @@ function Form(props) {
 
 	return (
 		<Container maxWidth="sm">
-			<Box sx={{ bgcolor: '#fff', my: 2, textAlign: 'center' }}>
+			<Box sx={{ bgcolor: '#fff', my: 2 }}>
 				<form onSubmit={handleSubmit(submitHandler)}>
 					<TextField
 						id="outlined-basic"
-						label="Search term"
+						placeholder="Search term"
 						variant="outlined"
 						sx={{ display: 'block', mb: 1 }}
 						{...register('keyword', { required: true })}
