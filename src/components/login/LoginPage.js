@@ -16,7 +16,6 @@ function LoginPage() {
 			<Card sx={{ minWidth: 275, my: 4 }}>
 				<LoginFrom />
 			</Card>
-			<ProfilePhotoForm />
 			<Card sx={{ minWidth: 275, my: 2 }}>
 				<Typography
 					variant="h2"

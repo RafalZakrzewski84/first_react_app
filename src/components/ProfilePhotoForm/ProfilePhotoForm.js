@@ -49,12 +49,9 @@ function ProfilePhotoForm() {
 					variant="h2"
 					component="h2"
 					sx={{ fontSize: '1.2rem', my: 2 }}>
-					Select a file
+					Add Profile Picture
 				</Typography>
-				{/* <input
-					type="file"
-					{...register('profilePicture', { required: true })}
-				/> */}
+
 				<Button
 					variant="contained"
 					component="label"
@@ -65,7 +62,7 @@ function ProfilePhotoForm() {
 						alignContent: 'center',
 					}}>
 					<Typography variant="h6" component="h6">
-						Add file here
+						Add File Here
 					</Typography>
 					<input
 						type="file"
@@ -73,6 +70,7 @@ function ProfilePhotoForm() {
 						{...register('profilePicture', { required: true })}
 					/>
 				</Button>
+
 				<Button variant="contained" type="submit">
 					Send
 				</Button>

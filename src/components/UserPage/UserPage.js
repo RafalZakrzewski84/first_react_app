@@ -10,41 +10,70 @@
 
 import React, { useState, useEffect } from 'react';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 import ProfilePhotoForm from '../ProfilePhotoForm/ProfilePhotoForm';
 
-import { onAuthStateChanged } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import firebase from '../helpers/fireBaseConfig';
+import Container from '@mui/material/Container';
 
 function UserPage(props) {
-	const [uEmail, setuEmail] = React.useState('');
+	let userPage;
+	if (props.userIsLogIn) {
+		//getting user data
+		const auth = firebase.auth;
+		const user = auth.currentUser;
+		const email = user.email;
+		// console.log(user);
 
-	const auth = firebase.auth;
-	console.log(auth.currentUser);
-
-	// onAuthStateChanged(auth, (user) => {
-	// 	console.log(user.email);
-	// 	setuEmail(user.email);
-	// });
+		const signOutHandler = () => {
+			signOut(auth)
+				.then(() => {
+					// Sign-out successful.
+				})
+				.catch((error) => {
+					// An error happened.
+				});
+		};
+		userPage = (
+			<>
+				<Typography
+					variant="h2"
+					component="h2"
+					align="center"
+					sx={{ fontSize: '2rem', my: 2 }}>
+					Your email: {email}
+				</Typography>
+				<ProfilePhotoForm />
+				<Button onClick={signOutHandler} variant="outlined">
+					Log Out
+				</Button>
+			</>
+		);
+	} else {
+		userPage = (
+			<Typography
+				variant="h2"
+				component="h2"
+				align="center"
+				sx={{ fontSize: '2rem', my: 2 }}>
+				To See Details Please LogIn
+			</Typography>
+		);
+	}
 
 	return (
-		<div>
+		<Container align="center" maxWidth="sm" sx={{}}>
 			<Typography
 				variant="h2"
 				component="h2"
 				align="center"
 				sx={{ fontSize: '2rem', my: 2 }}>
-				Your profile
+				Your Profile Page
 			</Typography>
-			<Typography
-				variant="h2"
-				component="h2"
-				align="center"
-				sx={{ fontSize: '2rem', my: 2 }}>
-				Your email: {}
-			</Typography>
-			<ProfilePhotoForm />
-		</div>
+			{userPage}
+		</Container>
 	);
 }
 
