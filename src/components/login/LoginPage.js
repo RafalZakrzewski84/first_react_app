@@ -8,7 +8,6 @@ import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 
 import LoginFrom from './loginForm/LoginForm';
-import ProfilePhotoForm from '../ProfilePhotoForm/ProfilePhotoForm';
 
 function LoginPage() {
 	return (

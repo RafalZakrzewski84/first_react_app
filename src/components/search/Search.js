@@ -1,7 +1,6 @@
 /** @format */
 
 import React, { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
@@ -37,7 +36,6 @@ function Search() {
 		}
 
 		let from = `${year}-${month}-${day}`;
-		console.log(from);
 
 		//fetching function if search term not empty
 		if (searchKeyword !== '') {
@@ -47,7 +45,8 @@ function Search() {
 				)
 				.then((res) => {
 					//printing fetch result
-					console.log(res);
+					// console.log(res);
+
 					//setting searchArticles variable
 					setSearchArticles(res.data.articles);
 				})
@@ -57,13 +56,13 @@ function Search() {
 	}, [searchKeyword]);
 
 	return (
-		<Container align="center" maxWidth="sm" sx={{}}>
+		<Container align="center" maxWidth="sm">
 			<Form searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword} />
 			<Typography
 				variant="h2"
 				component="h2"
 				align="center"
-				sx={{ fontSize: '2rem', my: 2 }}>
+				sx={{ fontSize: '2rem', my: '2rem' }}>
 				Most popular news from last week
 			</Typography>
 			<List>

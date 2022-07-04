@@ -1,11 +1,6 @@
 /** @format */
 
-// 3. HomePage.js
-// h2 Today's hottest news:
-// pusty ul
-
 import React, { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 import axios from 'axios';
@@ -17,8 +12,10 @@ import Article from '../article/Article';
 function HomePage() {
 	//hook use state
 	const [todaysArticles, setTodaysArticles] = useState([]);
+
 	//hook use effect
 	useEffect(() => {
+		//date fot from parameter in URL
 		const today = new Date();
 		const day = today.getDate();
 		const month = today.getMonth();
@@ -32,7 +29,9 @@ function HomePage() {
 				}-${day - 1}&language=en&sortBy=popularity&apiKey=${API_KEY}`
 			)
 			.then((response) => {
-				console.log(response);
+				//printing axios response
+				// console.log(response);
+
 				//setting axios response to todaysArticles
 				setTodaysArticles(response.data.articles);
 			})
@@ -41,15 +40,13 @@ function HomePage() {
 			});
 	}, []);
 
-	// 1. h2 zamień na Typography (sprawdź jak wyświetlić Tg jako h2), text: Today's hottest news:
-	//2. ul => List
 	return (
-		<Container align="center" maxWidth="sm" sx={{}}>
+		<Container align="center" maxWidth="sm">
 			<Typography
 				variant="h2"
 				component="h2"
 				align="center"
-				sx={{ fontSize: '2rem', my: 2 }}>
+				sx={{ fontSize: '2rem', my: '2rem' }}>
 				Today's hottest news
 			</Typography>
 			<List>

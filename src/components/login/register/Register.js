@@ -1,7 +1,6 @@
 /** @format */
 
 import { useForm } from 'react-hook-form';
-import { useState, useEffect } from 'react';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -13,9 +12,9 @@ import Typography from '@mui/material/Typography';
 import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
 import firebase from '../../helpers/fireBaseConfig';
 
-const auth = firebase.auth;
-
 function Register() {
+	const auth = firebase.auth;
+
 	//functions for handle form
 	const {
 		register,
@@ -25,8 +24,6 @@ function Register() {
 
 	//function for taking data from form and adding
 	const submitHandler = (data) => {
-		// console.log(data);
-
 		//initialize variables for crating user
 		const email = data.email;
 		const password = data.password;
@@ -50,13 +47,13 @@ function Register() {
 
 	return (
 		<Container align="center" maxWidth="sm">
-			<Box sx={{ bgcolor: '#fff', my: 2 }}>
-				<Card sx={{ minWidth: 275, my: 4, p: 4 }}>
+			<Box sx={{ bgcolor: '#fff', my: '2rem' }}>
+				<Card sx={{ minWidth: 275, my: '2rem' }}>
 					<Typography
 						variant="h2"
 						component="h2"
 						align="center"
-						sx={{ fontSize: '1.2rem', my: 2 }}>
+						sx={{ fontSize: '1.2rem', my: '2rem' }}>
 						Register New Account
 					</Typography>
 					<form onSubmit={handleSubmit(submitHandler)}>
@@ -87,7 +84,7 @@ function Register() {
 								minLength: 8,
 							})}
 						/>
-						<Button variant="contained" type="submit">
+						<Button variant="contained" type="submit" sx={{ my: '1.5rem' }}>
 							Log in
 						</Button>
 					</form>

@@ -2,6 +2,12 @@
 
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+//firebase imports
+import { onAuthStateChanged } from 'firebase/auth';
+import firebase from './components/helpers/fireBaseConfig';
+
+//components imports
 import Navbar from './components/navbar/Navbar';
 import HomePage from './components/homePage/HomePage';
 import Search from './components/search/Search';
@@ -9,33 +15,14 @@ import LoginPage from './components/login/LoginPage';
 import Register from './components/login/register/Register';
 import UserPage from './components/UserPage/UserPage';
 
-import { onAuthStateChanged } from 'firebase/auth';
-import firebase from './components/helpers/fireBaseConfig';
-
-//zadanie
-// W App.js
-// 1. Stan loggedIn (useState)
-// 2. onAuthStateChanged, w callbacku:
-// a) jeżeli user istnieje to ustaw loggedIn na true
-// b) jeżeli user nie istnieje to ustaw loggedIn na false
-// 3. Stan loggedIn przekaż propsami do Navbar.js, UserPage.js
-
 function App() {
+	//user login state
 	const [userIsLogIn, setUserIsLogIn] = useState(false);
 
 	const auth = firebase.auth;
-
-	//function for checking user
+	//function for checking if user logged in
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
-			// //log in
-			// const udata = {
-			// 	uEmail: user.email,
-			// 	logIn: true,
-			// };
-			// const uid = user.uid;
-			// const uEmail = user.email;
-
 			setUserIsLogIn(true);
 		} else {
 			setUserIsLogIn(false);

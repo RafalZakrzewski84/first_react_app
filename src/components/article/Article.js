@@ -1,12 +1,5 @@
 /** @format */
 
-// Komponent Article.js
-// 1. Card
-// 2. ListItem
-// 3. a
-// 4. img
-// 5. ListItemText
-
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -15,11 +8,11 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Link from '@mui/material/Link';
 
-//taking props art from homepage
+//taking props art from homepage - art is article from
 function Article({ art }) {
 	return (
 		<Link href={art.url} target="blank" underline="none">
-			<Card elevation={6} sx={{ maxWidth: 345, mb: 3 }}>
+			<Card elevation={6} sx={{ maxWidth: 345, mb: '2rem' }}>
 				<CardActionArea>
 					<CardMedia
 						component="img"
@@ -32,7 +25,7 @@ function Article({ art }) {
 							gutterBottom
 							variant="h6"
 							component="div"
-							sx={{ lineHeight: 1.2, mb: 2 }}>
+							sx={{ lineHeight: '1.5rem', mb: '1.5rem' }}>
 							{art.title}
 						</Typography>
 						<Typography variant="body2" color="text.secondary">

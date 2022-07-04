@@ -15,7 +15,6 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import FitbitIcon from '@mui/icons-material/Fitbit';
 
 const Navbar = (props) => {
@@ -80,28 +79,28 @@ const Navbar = (props) => {
 							}}>
 							<MenuItem>
 								<Link to="/" style={{ textDecoration: 'none' }}>
-									<Typography textAling="center" onClick={handleCloseNavMenu}>
+									<Typography align="center" onClick={handleCloseNavMenu}>
 										Home
 									</Typography>
 								</Link>
 							</MenuItem>
 							<MenuItem>
 								<Link to="/search" style={{ textDecoration: 'none' }}>
-									<Typography textAling="center" onClick={handleCloseNavMenu}>
+									<Typography align="center" onClick={handleCloseNavMenu}>
 										Search
 									</Typography>
 								</Link>
 							</MenuItem>
 							<MenuItem>
 								<Link to="/userpage" style={{ textDecoration: 'none' }}>
-									<Typography textAling="center" onClick={handleCloseNavMenu}>
+									<Typography align="center" onClick={handleCloseNavMenu}>
 										Your Page
 									</Typography>
 								</Link>
 							</MenuItem>
 							<MenuItem>
 								<Link to="/login" style={{ textDecoration: 'none' }}>
-									<Typography textAling="center" onClick={handleCloseNavMenu}>
+									<Typography align="center" onClick={handleCloseNavMenu}>
 										LogIn
 									</Typography>
 								</Link>

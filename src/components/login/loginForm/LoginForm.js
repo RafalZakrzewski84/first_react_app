@@ -3,27 +3,20 @@
 import { useForm } from 'react-hook-form';
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
 import firebase from '../../helpers/fireBaseConfig';
 
-const auth = firebase.auth;
-
 function LoginFrom() {
+	const auth = firebase.auth;
+
 	//functions for handle form
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm();
+	const { register, handleSubmit } = useForm();
 
 	//getting data from form
 	const submitHandler = (data) => {
-		console.log(data);
-
 		//crating variables for log in
 		const email = data.email;
 		const password = data.password;
@@ -42,31 +35,29 @@ function LoginFrom() {
 	};
 
 	return (
-		<Container align="center" maxWidth="sm">
-			<Box align="center" sx={{ bgcolor: '#fff', my: 2 }}>
-				<form onSubmit={handleSubmit(submitHandler)}>
-					<TextField
-						type="email"
-						id="outlined-basic"
-						placeholder="Email"
-						variant="outlined"
-						sx={{ display: 'block', mb: 1 }}
-						{...register('email', { required: true })}
-					/>
-					<TextField
-						type="password"
-						id="outlined-basic"
-						placeholder="Password"
-						variant="outlined"
-						sx={{ display: 'block', mb: 1 }}
-						{...register('password', { required: true })}
-					/>
-					<Button variant="contained" type="submit">
-						Log in
-					</Button>
-				</form>
-			</Box>
-		</Container>
+		<Box align="center" sx={{ bgcolor: '#fff', my: '2rem' }}>
+			<form onSubmit={handleSubmit(submitHandler)}>
+				<TextField
+					type="email"
+					id="outlined-basic"
+					placeholder="Email"
+					variant="outlined"
+					sx={{ display: 'block', mb: 1 }}
+					{...register('email', { required: true })}
+				/>
+				<TextField
+					type="password"
+					id="outlined-basic"
+					placeholder="Password"
+					variant="outlined"
+					sx={{ display: 'block', mb: 1 }}
+					{...register('password', { required: true })}
+				/>
+				<Button variant="contained" type="submit">
+					Log in
+				</Button>
+			</form>
+		</Box>
 	);
 }
 
