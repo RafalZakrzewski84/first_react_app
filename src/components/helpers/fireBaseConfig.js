@@ -1,12 +1,12 @@
 /** @format */
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js';
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
-import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js';
-import { getStorage } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-storage.js';
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { getAuth } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
+import { getStorage } from 'firebase/storage';
+import { getFirestore } from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
