@@ -15,7 +15,6 @@ import Button from '@mui/material/Button';
 import ProfilePhotoForm from '../ProfilePhotoForm/ProfilePhotoForm';
 
 import { confirmPasswordReset, signOut } from 'firebase/auth';
-import { ref, getDownloadURL } from 'firebase/storage';
 import firebase from '../helpers/fireBaseConfig';
 import Container from '@mui/material/Container';
 
@@ -27,18 +26,6 @@ function UserPage(props) {
 		const user = auth.currentUser;
 		const email = user.email;
 		// console.log(user);
-
-		//get to google storage
-		const storage = firebase.storage;
-		// const storageRef = ref(storage, `/users/${auth.currentUser.uid}/profile`);
-		// getDownloadURL(storageRef)
-		// 	.then((url) => {
-		// 		// Insert url into an <img> tag to "download"
-		// 		console.log(url);
-		// 	})
-		// 	.catch((error) => {
-		// 		console.log(error);
-		// 	});
 
 		const signOutHandler = () => {
 			signOut(auth)
