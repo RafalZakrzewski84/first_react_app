@@ -30,6 +30,16 @@ const Navbar = (props) => {
 
 	console.log('navbar props:', props);
 
+	//changing link
+	let logLink;
+	if (props.userIsLogIn) {
+		logLink = '/userpage';
+	} else {
+		logLink = '/login';
+	}
+
+	console.log(logLink);
+
 	return (
 		<AppBar position="static">
 			<Container maxWidth="xl">
@@ -91,13 +101,13 @@ const Navbar = (props) => {
 									</Typography>
 								</Link>
 							</MenuItem>
-							<MenuItem>
+							{/* <MenuItem>
 								<Link to="/userpage" style={{ textDecoration: 'none' }}>
 									<Typography align="center" onClick={handleCloseNavMenu}>
 										Your Page
 									</Typography>
 								</Link>
-							</MenuItem>
+							</MenuItem> */}
 							<MenuItem>
 								<Link to="/login" style={{ textDecoration: 'none' }}>
 									<Typography align="center" onClick={handleCloseNavMenu}>
@@ -140,16 +150,16 @@ const Navbar = (props) => {
 								Search
 							</Button>
 						</Link>
-						<Link to="/userpage" style={{ textDecoration: 'none' }}>
+						{/* <Link to="/userpage" style={{ textDecoration: 'none' }}>
 							<Button
 								onClick={handleCloseNavMenu}
 								sx={{ my: 2, color: 'white', display: 'block' }}>
 								Your Page
 							</Button>
-						</Link>
+						</Link> */}
 					</Box>
 					<Box sx={{ flexGrow: 0 }}>
-						<Link to="/login" style={{ textDecoration: 'none' }}>
+						<Link to={logLink} style={{ textDecoration: 'none' }}>
 							<IconButton sx={{ p: 0 }}>
 								<Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
 							</IconButton>
