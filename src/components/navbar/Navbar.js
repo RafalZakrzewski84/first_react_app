@@ -17,8 +17,21 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import FitbitIcon from '@mui/icons-material/Fitbit';
 
+import { ref as storageRef, getDownloadURL } from 'firebase/storage';
+import firebase from '../helpers/fireBaseConfig';
+
+// 1. Pobranie odpowiedniego pliku z FB Storage (przykład z dokumentacji na samym dole strony) (useEffect)
+// 2. Stan profilePhoto (tu siedzi src dla avatara)
+// 3. Src avatara ustawiacie na stan profilePhoto
+// 4. W zależności od stanu loggedIn:
+// jeżeli true: IconButton
+// jeżeli false: Button text: Log in
+
 const Navbar = (props) => {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
+	const [avatarImg, setAvatarImg] = React.useState(
+		'/static/images/avatar/1.jpg'
+	);
 
 	const handleOpenNavMenu = (event) => {
 		setAnchorElNav(event.currentTarget);
@@ -32,13 +45,63 @@ const Navbar = (props) => {
 
 	//changing link
 	let logLink;
+	let btnLink;
 	if (props.userIsLogIn) {
 		logLink = '/userpage';
+		btnLink = 'LogOut';
 	} else {
 		logLink = '/login';
+		btnLink = 'LogIn';
 	}
 
 	console.log(logLink);
+
+	//hook use effect
+	// React.useEffect(() => {
+	// 	if (props.userIsLogIn === true) {
+	// 		//getting user data
+	// 		const auth = firebase.auth;
+	// 		const user = auth.currentUser;
+	// 		const uid = user.uid;
+	// 		console.log(uid);
+
+	// 		//get to google storage
+	// 		// gs://sdanews-acd6d.appspot.com/users/2yQzogTK7bN4MlSZNMfdHVPW99p2
+	// 		const storage = firebase.storage;
+	// 		const storageRef1 = storageRef(
+	// 			storage,
+	// 			'/users/2yQzogTK7bN4MlSZNMfdHVPW99p2/profile'
+	// 		);
+	// 		// // getDownloadURL(storageRef)
+	// 		// // 	.then((url) => {
+	// 		// // 		// Insert url into an <img> tag to "download"
+	// 		// // 		console.log(url);
+	// 		// // 	})
+	// 		// // 	.catch((error) => {
+	// 		// // 		console.log(error);
+	// 		// // 	});
+	// 	} else {
+	// 		setAvatarImg('/static/images/avatar/1.jpg');
+	// 	}
+	// }, [props.userIsLogIn]);
+
+	React.useEffect(() => {
+		if (props.userIsLogIn === true) {
+			const profilePhotoRef = storageRef(
+				firebase.storage,
+				`gs://sdanews-acd6d.appspot.com/users/${firebase.auth.currentUser.uid}/profile`
+			);
+			getDownloadURL(profilePhotoRef)
+				.then((url) => {
+					setAvatarImg(url);
+				})
+				.catch((err) => {
+					setAvatarImg('/static/images/avatar/1.jpg');
+				});
+		} else {
+			setAvatarImg('/static/images/avatar/1.jpg');
+		}
+	}, [props.userIsLogIn]);
 
 	return (
 		<AppBar position="static">
@@ -109,9 +172,9 @@ const Navbar = (props) => {
 								</Link>
 							</MenuItem> */}
 							<MenuItem>
-								<Link to="/login" style={{ textDecoration: 'none' }}>
+								<Link to={logLink} style={{ textDecoration: 'none' }}>
 									<Typography align="center" onClick={handleCloseNavMenu}>
-										LogIn
+										{btnLink}
 									</Typography>
 								</Link>
 							</MenuItem>
@@ -161,7 +224,7 @@ const Navbar = (props) => {
 					<Box sx={{ flexGrow: 0 }}>
 						<Link to={logLink} style={{ textDecoration: 'none' }}>
 							<IconButton sx={{ p: 0 }}>
-								<Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+								<Avatar alt="Remy Sharp" src={avatarImg} />
 							</IconButton>
 						</Link>
 					</Box>
