@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import firebase from '../../helpers/fireBaseConfig';
 
 function Register() {

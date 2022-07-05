@@ -17,7 +17,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import FitbitIcon from '@mui/icons-material/Fitbit';
 
-import { ref as storageRef, getDownloadURL } from 'firebase/storage';
+import { ref, getDownloadURL } from 'firebase/storage';
 import firebase from '../helpers/fireBaseConfig';
 
 // 1. Pobranie odpowiedniego pliku z FB Storage (przykład z dokumentacji na samym dole strony) (useEffect)
@@ -68,7 +68,7 @@ const Navbar = (props) => {
 	// 		//get to google storage
 	// 		// gs://sdanews-acd6d.appspot.com/users/2yQzogTK7bN4MlSZNMfdHVPW99p2
 	// 		const storage = firebase.storage;
-	// 		const storageRef1 = storageRef(
+	// 		const storageRef = ref(
 	// 			storage,
 	// 			'/users/2yQzogTK7bN4MlSZNMfdHVPW99p2/profile'
 	// 		);
@@ -87,7 +87,7 @@ const Navbar = (props) => {
 
 	React.useEffect(() => {
 		if (props.userIsLogIn === true) {
-			const profilePhotoRef = storageRef(
+			const profilePhotoRef = ref(
 				firebase.storage,
 				`gs://sdanews-acd6d.appspot.com/users/${firebase.auth.currentUser.uid}/profile`
 			);

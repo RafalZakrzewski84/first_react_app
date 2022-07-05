@@ -6,10 +6,7 @@ import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-import {
-	uploadBytes,
-	ref,
-} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-storage.js';
+import { uploadBytes, ref } from 'firebase/storage';
 import firebase from '../helpers/fireBaseConfig';
 
 //storage refs

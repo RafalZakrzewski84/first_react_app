@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import firebase from '../../helpers/fireBaseConfig';
 
 function LoginFrom() {
