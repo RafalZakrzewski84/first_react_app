@@ -41,9 +41,10 @@ const Navbar = (props) => {
 		setAnchorElNav(null);
 	};
 
-	console.log('navbar props:', props);
+	//printing props
+	// console.log('navbar props:', props);
 
-	//changing link
+	//changing login links
 	let logLink;
 	let btnLink;
 	if (props.userIsLogIn) {
@@ -54,49 +55,25 @@ const Navbar = (props) => {
 		btnLink = 'LogIn';
 	}
 
-	console.log(logLink);
-
 	//hook use effect
-	// React.useEffect(() => {
-	// 	if (props.userIsLogIn === true) {
-	// 		//getting user data
-	// 		const auth = firebase.auth;
-	// 		const user = auth.currentUser;
-	// 		const uid = user.uid;
-	// 		console.log(uid);
-
-	// 		//get to google storage
-	// 		// gs://sdanews-acd6d.appspot.com/users/2yQzogTK7bN4MlSZNMfdHVPW99p2
-	// 		const storage = firebase.storage;
-	// 		const storageRef = ref(
-	// 			storage,
-	// 			'/users/2yQzogTK7bN4MlSZNMfdHVPW99p2/profile'
-	// 		);
-	// 		// // getDownloadURL(storageRef)
-	// 		// // 	.then((url) => {
-	// 		// // 		// Insert url into an <img> tag to "download"
-	// 		// // 		console.log(url);
-	// 		// // 	})
-	// 		// // 	.catch((error) => {
-	// 		// // 		console.log(error);
-	// 		// // 	});
-	// 	} else {
-	// 		setAvatarImg('/static/images/avatar/1.jpg');
-	// 	}
-	// }, [props.userIsLogIn]);
-
 	React.useEffect(() => {
 		if (props.userIsLogIn === true) {
-			const profilePhotoRef = ref(
-				firebase.storage,
-				`gs://sdanews-acd6d.appspot.com/users/${firebase.auth.currentUser.uid}/profile`
-			);
-			getDownloadURL(profilePhotoRef)
+			//getting user data
+			const auth = firebase.auth;
+			const uid = auth.currentUser.uid;
+
+			const storagePath = `gs://sdanews-acd6d.appspot.com/users/${uid}/profile`;
+
+			//get to google storage
+			const storage = firebase.storage;
+			const storageRef = ref(storage, storagePath);
+			getDownloadURL(storageRef)
 				.then((url) => {
+					// Insert url into an <img> tag to "download"
 					setAvatarImg(url);
 				})
-				.catch((err) => {
-					setAvatarImg('/static/images/avatar/1.jpg');
+				.catch((error) => {
+					console.log(error);
 				});
 		} else {
 			setAvatarImg('/static/images/avatar/1.jpg');
@@ -250,3 +227,22 @@ export default Navbar;
 // 		<button>Login</button>
 // 	</Link>
 // </nav>
+
+//Kacper solution
+// React.useEffect(() => {
+// 	if (props.userIsLogIn === true) {
+// 		const profilePhotoRef = ref(
+// 			firebase.storage,
+// 			`gs://sdanews-acd6d.appspot.com/users/${firebase.auth.currentUser.uid}/profile`
+// 		);
+// 		getDownloadURL(profilePhotoRef)
+// 			.then((url) => {
+// 				setAvatarImg(url);
+// 			})
+// 			.catch((err) => {
+// 				setAvatarImg('/static/images/avatar/1.jpg');
+// 			});
+// 	} else {
+// 		setAvatarImg('/static/images/avatar/1.jpg');
+// 	}
+// }, [props.userIsLogIn]);
