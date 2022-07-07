@@ -15,25 +15,17 @@ function HomePage() {
 
 	//hook use effect
 	useEffect(() => {
-		//date fot from parameter in URL
-		const today = new Date();
-		const day = today.getDate();
-		const month = today.getMonth();
-		const year = today.getFullYear();
+		const API_URL = 'http://api.mediastack.com/v1/news?access_key=';
 
 		//feaching data from news API using axios
 		axios
-			.get(
-				`https://newsapi.org/v2/everything?q=world&from=${year}-${
-					month < 10 ? `0${month + 1}` : month + 1
-				}-${day - 1}&language=en&sortBy=popularity&apiKey=${API_KEY}`
-			)
+			.get(`${API_URL}${API_KEY}&languages=en`)
 			.then((response) => {
 				//printing axios response
-				// console.log(response);
+				console.log(response);
 
 				//setting axios response to todaysArticles
-				setTodaysArticles(response.data.articles);
+				setTodaysArticles(response.data.data);
 			})
 			.catch((e) => {
 				console.log(e);
