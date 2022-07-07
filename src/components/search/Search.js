@@ -19,7 +19,7 @@ function Search() {
 
 	useEffect(() => {
 		//base url for searching in API
-		const API_URL = 'https://newsapi.org/v2/everything?q=';
+		const API_URL = 'http://api.mediastack.com/v1/news?access_key=';
 
 		//constructing date for from in url
 		const date = new Date();
@@ -27,28 +27,25 @@ function Search() {
 		let month = date.getMonth();
 		let year = date.getFullYear();
 
-		if (day < 7) {
-			day = day + 31 - 7;
-			month = month < 10 ? `0${month}` : month;
-		} else {
-			day = day < 10 ? `0${day}` : day;
-			month = month < 10 ? `0${month + 1}` : month + 1;
-		}
+		day = day < 10 ? `0${day}` : day;
+		month = month < 10 ? `0${month + 1}` : month + 1;
 
 		let from = `${year}-${month}-${day}`;
+		// console.log(from);
 
 		//fetching function if search term not empty
 		if (searchKeyword !== '') {
 			axios
 				.get(
-					`${API_URL}${searchKeyword}&from=${from}&language=en&sortBy=popularity&apiKey=${API_KEY}`
+					`${API_URL}${API_KEY}&date=${from}&languages=en&keywords=${searchKeyword}`
+					// `${API_URL}${searchKeyword}&from=${from}&language=en&sortBy=popularity&apiKey=${API_KEY}`
 				)
 				.then((res) => {
 					//printing fetch result
 					// console.log(res);
 
 					//setting searchArticles variable
-					setSearchArticles(res.data.articles);
+					setSearchArticles(res.data.data);
 				})
 				.catch((e) => console.log(e));
 		}
@@ -63,7 +60,7 @@ function Search() {
 				component="h2"
 				align="center"
 				sx={{ fontSize: '2rem', my: '2rem' }}>
-				Most popular news from last week
+				Most popular news from current day
 			</Typography>
 			<List>
 				{searchArticles.map((art, idx) => {
