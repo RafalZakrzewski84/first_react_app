@@ -11,6 +11,8 @@ import newsArt from '../../assets/article.jpg';
 
 //taking props art from homepage - art is article from
 function Article({ art }) {
+	let artDate = art.published_at.slice(0, 10);
+
 	const [artImage, setArtImage] = React.useState(null);
 
 	React.useEffect(() => {
@@ -42,6 +44,12 @@ function Article({ art }) {
 						</Typography>
 						<Typography variant="body2" color="text.secondary">
 							{art.description}
+						</Typography>
+						<Typography
+							variant="body2"
+							color="text.secondary"
+							sx={{ lineHeight: '1rem', my: '1.5rem' }}>
+							Published At: {artDate}
 						</Typography>
 					</CardContent>
 				</CardActionArea>
