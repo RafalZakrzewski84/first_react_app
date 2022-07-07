@@ -22,7 +22,7 @@ function HomePage() {
 			.get(`${API_URL}${API_KEY}&languages=en`)
 			.then((response) => {
 				//printing axios response
-				console.log(response);
+				// console.log(response);
 
 				//setting axios response to todaysArticles
 				setTodaysArticles(response.data.data);
