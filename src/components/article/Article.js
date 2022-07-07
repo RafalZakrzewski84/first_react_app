@@ -7,9 +7,21 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Link from '@mui/material/Link';
+import newsArt from '../../assets/article.jpg';
 
 //taking props art from homepage - art is article from
 function Article({ art }) {
+	const [artImage, setArtImage] = React.useState(null);
+
+	React.useEffect(() => {
+		if (art.image === null) {
+			//process.env.PUBLIC_URL+'article.jpg'
+			setArtImage(newsArt);
+		} else {
+			setArtImage(art.image);
+		}
+	}, [art]);
+
 	return (
 		<Link href={art.url} target="blank" underline="none">
 			<Card elevation={6} sx={{ maxWidth: 345, mb: '2rem' }}>
@@ -17,7 +29,7 @@ function Article({ art }) {
 					<CardMedia
 						component="img"
 						height="140"
-						image={art.urlToImage}
+						image={artImage}
 						alt={art.title}
 					/>
 					<CardContent>
